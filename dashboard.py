@@ -1,7 +1,18 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-import os
 
+app = FastAPI()
+
+@app.get("/", response_class=HTMLResponse)
+def home():
+    return """
+    <html>
+        <body style="background:black;color:white;text-align:center;">
+            <h1>Paperbot Running</h1>
+            <p>Status: Active</p>
+        </body>
+    </html>
+    """
 app = FastAPI()
 
 balance = 100000
